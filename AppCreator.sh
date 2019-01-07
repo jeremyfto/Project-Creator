@@ -1,3 +1,6 @@
+# App Creator designed and programmed by Jeremy Felts
+# Project started: 10/17/2018
+# Last Updated: 1/7/2019
 function AppUrls() {
 	echo "from django.conf.urls import url" >> urls.py
 	echo "from . import views" >> urls.py
