@@ -47,49 +47,54 @@ function index() {
 	echo "	<script src="main.js"></script>" >> index.html
 	echo "</head>" >> index.html
 	echo "<body>" >> index.html
-	echo "	You are on the premade Index" >> index.html
+	echo "	You are on a premade index page" >> index.html
 	echo "</body>" >> index.html
 	echo "</html>" >> index.html
 }
 function PasteOne() {
     sed -i "34i\    'apps.$APPONE'," settings.py
-    sed -i "8i\    url(r'^$APPONE/', include('apps.$APPONE.urls'))," urls.py
+    sed -i "20i\    url(r'^$APPONE/', include('apps.$APPONE.urls'))," urls.py
+    perl -pi -e 's/from django.conf.urls import url/from django.conf.urls import url, include/g' urls.py
 }
 function PasteTwo() {
     sed -i "34i\    'apps.$APPONE'," settings.py
-    sed -i "8i\    url(r'^$APPONE/', include('apps.$APPONE.urls'))," urls.py
+    sed -i "20i\    url(r'^$APPONE/', include('apps.$APPONE.urls'))," urls.py
     sed -i "34i\    'apps.$APPTWO'," settings.py
-    sed -i "8i\    url(r'^$APPTWO/', include('apps.$APPTWO.urls'))," urls.py
+    sed -i "20i\    url(r'^$APPTWO/', include('apps.$APPTWO.urls'))," urls.py
+    perl -pi -e 's/from django.conf.urls import url/from django.conf.urls import url, include/g' urls.py
 }
 function PasteThree() {
     sed -i "34i\    'apps.$APPONE'," settings.py
-    sed -i "8i\    url(r'^$APPONE/', include('apps.$APPONE.urls'))," urls.py
+    sed -i "20i\    url(r'^$APPONE/', include('apps.$APPONE.urls'))," urls.py
     sed -i "34i\    'apps.$APPTWO'," settings.py
-    sed -i "8i\    url(r'^$APPTWO/', include('apps.$APPTWO.urls'))," urls.py
+    sed -i "20i\    url(r'^$APPTWO/', include('apps.$APPTWO.urls'))," urls.py
     sed -i "34i\    'apps.$APPTHREE'," settings.py
-    sed -i "8i\    url(r'^$APPTHREE/', include('apps.$APPTHREE.urls'))," urls.py
+    sed -i "20i\    url(r'^$APPTHREE/', include('apps.$APPTHREE.urls'))," urls.py
+    perl -pi -e 's/from django.conf.urls import url/from django.conf.urls import url, include/g' urls.py
 }
 function PasteFour() {
     sed -i "34i\    'apps.$APPONE'," settings.py
-    sed -i "8i\    url(r'^$APPONE/', include('apps.$APPONE.urls'))," urls.py
+    sed -i "20i\    url(r'^$APPONE/', include('apps.$APPONE.urls'))," urls.py
     sed -i "34i\    'apps.$APPTWO'," settings.py
-    sed -i "8i\    url(r'^$APPTWO/', include('apps.$APPTWO.urls'))," urls.py
+    sed -i "20i\    url(r'^$APPTWO/', include('apps.$APPTWO.urls'))," urls.py
     sed -i "34i\    'apps.$APPTHREE'," settings.py
-    sed -i "8i\    url(r'^$APPTHREE/', include('apps.$APPTHREE.urls'))," urls.py
+    sed -i "20i\    url(r'^$APPTHREE/', include('apps.$APPTHREE.urls'))," urls.py
     sed -i "34i\    'apps.$APPFOUR'," settings.py
-    sed -i "8i\    url(r'^$APPFOUR/', include('apps.$APPFOUR.urls'))," urls.py
+    sed -i "20i\    url(r'^$APPFOUR/', include('apps.$APPFOUR.urls'))," urls.py
+    perl -pi -e 's/from django.conf.urls import url/from django.conf.urls import url, include/g' urls.py
 }
 function PasteFive() {
     sed -i "34i\    'apps.$APPONE'," settings.py
-    sed -i "8i\    url(r'^$APPONE/', include('apps.$APPONE.urls'))," urls.py
+    sed -i "20i\    url(r'^$APPONE/', include('apps.$APPONE.urls'))," urls.py
     sed -i "34i\    'apps.$APPTWO'," settings.py
-    sed -i "8i\    url(r'^$APPTWO/', include('apps.$APPTWO.urls'))," urls.py
+    sed -i "20i\    url(r'^$APPTWO/', include('apps.$APPTWO.urls'))," urls.py
     sed -i "34i\    'apps.$APPTHREE'," settings.py
-    sed -i "8i\    url(r'^$APPTHREE/', include('apps.$APPTHREE.urls'))," urls.py
+    sed -i "20i\    url(r'^$APPTHREE/', include('apps.$APPTHREE.urls'))," urls.py
     sed -i "34i\    'apps.$APPFOUR'," settings.py
-    sed -i "8i\    url(r'^$APPFOUR/', include('apps.$APPFOUR.urls'))," urls.py
+    sed -i "20i\    url(r'^$APPFOUR/', include('apps.$APPFOUR.urls'))," urls.py
     sed -i "34i\    'apps.$APPFIVE'," settings.py
-    sed -i "8i\    url(r'^$APPFIVE/', include('apps.$APPFIVE.urls'))," urls.py
+    sed -i "20i\    url(r'^$APPFIVE/', include('apps.$APPFIVE.urls'))," urls.py
+    perl -pi -e 's/from django.conf.urls import url/from django.conf.urls import url, include/g' urls.py
 }
 PS3='Do you have a Virtual Environment?: '
 options=("Yes" "No")
@@ -172,3 +177,4 @@ do
         *) echo "invalid option $REPLY";;
     esac
 done
+read -p "REMOVE"
