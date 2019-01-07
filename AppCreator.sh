@@ -177,4 +177,3 @@ do
         *) echo "invalid option $REPLY";;
     esac
 done
-read -p "REMOVE"
